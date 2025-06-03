@@ -1,5 +1,3 @@
-const cors = require('cors');
-app.use(cors());
 
 const express = require('express');
 const app = express();
@@ -7,6 +5,9 @@ const port = 3000;
 
 // JSON 본문을 파싱하기 위한 미들웨어
 app.use(express.json());
+
+const cors = require('cors');
+app.use(cors());
 
 const questions = [
   {
