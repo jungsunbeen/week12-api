@@ -17,7 +17,7 @@ const questions = [
     correct: "예술공학부"
   },
   {
-    question: "13기 프론트엔드 파트장님의 인스타그램 아이디는?",
+    question: "멋사 13기 프론트엔드 파트장님의 인스타그램 아이디는?",
     answers: ["f0rsxygrav2", "forsxygrave", "forsxygreve"],
     correct: "forsxygrave"
   },
