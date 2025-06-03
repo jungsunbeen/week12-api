@@ -78,6 +78,38 @@ app.post('/api/answers', (req, res) => {
   res.json({ results });
 });
 
+app.get('/api/result', (req, res) => {
+  const score = parseInt(req.query.score, 10);
+
+  if (isNaN(score) || score < 0 || score > 5) {
+    return res.status(400).json({ error: "score는 0부터 5 사이의 숫자여야 합니다." });
+  }
+
+  let message = "";
+  switch (score) {
+    case 5:
+      message = "🥳 만점이에요! 완벽해요!";
+      break;
+    case 4:
+      message = "👍 거의 다 맞았어요!";
+      break;
+    case 3:
+      message = "🙂 절반 이상 맞췄어요!";
+      break;
+    case 2:
+      message = "😐 조금 더 공부해봐요!";
+      break;
+    case 1:
+      message = "😅 하나만 맞았어요!";
+      break;
+    case 0:
+      message = "2의 3제곱을 몰라요?";
+      break;
+  }
+
+  res.json({ score, message });
+});
+
 app.listen(port, () => {
   console.log(`✅ 서버가 http://localhost:${port} 에서 실행 중입니다.`);
 });
